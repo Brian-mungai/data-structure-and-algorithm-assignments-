@@ -10,7 +10,6 @@ public:
             int digit = x % 10;
             x /= 10;
 
-            // Check overflow before multiplying
             if (rev > INT_MAX / 10 || (rev == INT_MAX / 10 && digit > 7)) return 0;
             if (rev < INT_MIN / 10 || (rev == INT_MIN / 10 && digit < -8)) return 0;
 
@@ -24,8 +23,8 @@ int main() {
     Solution sol;
     int x;
     cout << "Enter an integer: ";
-    cin >> x;
+    if (!(cin >> x)) return 0; 
     int result = sol.reverse(x);
     cout << "Reversed integer: " << result << endl;
     return 0;
-} 
+}
